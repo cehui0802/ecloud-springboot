@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.4.RELEASE</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.telecom</groupId>
+    <artifactId>ecloud-springboot</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>ecloud-base-autoconfigure</module>
+        <module>ecloud-base-starter</module>
+
+        <module>ecloud-sys-autoconfigure</module>
+        <module>ecloud-sys-starter</module>
+
+        <module>ecloud-security-autoconfigure</module>
+        <module>ecloud-security-starter</module>
+
+
+
+    </modules>
+    <packaging>pom</packaging>
+
+
+
+    <properties>
+        <!--代码合并到develop时必须指定版本号，不能用快照版本-->
+        <ecloud-main.version>1.0-SNAPSHOT</ecloud-main.version>
+
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <fst.version>2.57</fst.version>
+        <spring-session-bom.version>Bean-SR8</spring-session-bom.version>
+        <rocketmq-starter.version>2.1.1</rocketmq-starter.version>
+    </properties>
+
+
+
+    <!-- deploy 服务器 -->
+    <distributionManagement>
+        <repository>
+            <id>nexus_release</id>
+            <name>release</name>
+            <url>http://127.0.0.1:8085/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus_snapshots</id>
+            <name>snapshots</name>
+            <url>http://127.0.0.1:8085/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+    <repositories>
+        <repository>
+            <id>maven</id>
+            <name>maven</name>
+            <url>http://127.0.0.1:8085/repository/maven-releases/</url>
+        </repository>
+        <repository>
+            <id>maven-central</id>
+            <name>maven-central</name>
+            <url>http://127.0.0.1:8085/repository/maven-central/</url>
+        </repository>
+        <repository>
+            <id>maven-snapshot</id>
+            <name>maven-snapshot</name>
+            <url>http://127.0.0.1:8085/repository/maven-snapshots/</url>
+        </repository>
+    </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.telecom</groupId>
+                <artifactId>base-rest</artifactId>
+                <version>${ecloud-main.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.telecom</groupId>
+                <artifactId>sys-rest</artifactId>
+                <version>${ecloud-main.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.telecom</groupId>
+                <artifactId>ecloud-security</artifactId>
+                <version>${ecloud-main.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq-starter.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.telecom</groupId>
+                <artifactId>org-core</artifactId>
+                <version>${ecloud-main.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.telecom</groupId>
+                <artifactId>ecloud-base-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.telecom</groupId>
+                <artifactId>ecloud-security-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.telecom</groupId>
+                <artifactId>ecloud-sys-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.telecom</groupId>
+                <artifactId>component-j2cache</artifactId>
+                <version>${ecloud-main.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>de.ruedigermoeller</groupId>
+                <artifactId>fst</artifactId>
+                <version>${fst.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.session</groupId>
+                <artifactId>spring-session-bom</artifactId>
+                <version>${spring-session-bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
