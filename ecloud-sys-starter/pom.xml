@@ -15,7 +15,7 @@
         <dependency>
             <groupId>com.telecom</groupId>
             <artifactId>ecloud-sys-autoconfigure</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
 </project>
