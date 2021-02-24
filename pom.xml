@@ -23,7 +23,8 @@
 
         <module>ecloud-security-autoconfigure</module>
         <module>ecloud-security-starter</module>
-
+        <module>ecloud-sysmq-autoconfigure</module>
+        <module>ecloud-sysmq-starter</module>
 
 
     </modules>
@@ -93,9 +94,16 @@
             </dependency>
             <dependency>
                 <groupId>com.telecom</groupId>
+                <artifactId>sys-mq</artifactId>
+                <version>${ecloud-main.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.telecom</groupId>
                 <artifactId>ecloud-security</artifactId>
                 <version>${ecloud-main.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>org.apache.rocketmq</groupId>
                 <artifactId>rocketmq-spring-boot-starter</artifactId>
@@ -118,6 +126,12 @@
             <dependency>
                 <groupId>com.telecom</groupId>
                 <artifactId>ecloud-security-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.telecom</groupId>
+                <artifactId>ecloud-sysmq-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
